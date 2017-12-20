@@ -61,82 +61,89 @@ Mashape		|
 
 ## How to Build
 
+The generated code uses a few Gradle dependencies e.g., Jackson, Volley,
+and Apache HttpClient. The reference to these dependencies is already
+added in the build.gradle file will be installed automatically. Therefore,
+you will need internet access for a successful build.
 
-You must have Python ```2 >=2.7.9``` or Python ```3 >=3.4``` installed on your system to install and run this SDK. This SDK package depends on other Python packages like nose, jsonpickle etc. 
-These dependencies are defined in the ```requirements.txt``` file that comes with the SDK.
-To resolve these dependencies, you can use the PIP Dependency manager. Install it by following steps at [https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/).
+* In order to open the client library in Android Studio click on ``` Open an Existing Android Project ```.
 
-Python and PIP executables should be defined in your PATH. Open command prompt and type ```pip --version```.
-This should display the version of the PIP Dependency Manager installed if your installation was successful and the paths are properly defined.
+![Importing SDK into Android Studio - Step 1](https://apidocs.io/illustration/android?step=import1&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-* Using command line, navigate to the directory containing the generated files (including ```requirements.txt```) for the SDK.
-* Run the command ```pip install -r requirements.txt```. This should install all the required dependencies.
+* Browse to locate the folder containing the source code. Select the location of the CodeGenAndTransformerAPI gradle project and click ``` Ok ```.
 
-![Building SDK - Step 1](https://apidocs.io/illustration/python?step=installDependencies&workspaceFolder=CodeGen%20and%20Transformer%20API-Python)
+![Importing SDK into Android Studio - Step 2](https://apidocs.io/illustration/android?step=import2&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
+* Upon successful import, the project can be built by clicking on ``` Build > Make Project ``` or  pressing ``` Ctrl + F9 ```.
+
+![Importing SDK into Android Studio - Step 3](https://apidocs.io/illustration/android?step=import3&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
 ## How to Use
 
-The following section explains how to use the Codegenandtransformerapi SDK package in a new project.
+The following section explains how to use the CodeGenAndTransformerAPI library in a new project.
 
-### 1. Open Project in an IDE
+### 1. Starting a new project 
 
-Open up a Python IDE like PyCharm. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
+For starting a new project, click on ``` Create New Android Studio Project ```.
 
-![Open project in PyCharm - Step 1](https://apidocs.io/illustration/python?step=pyCharm)
+![Add a new project in Android Studio - Step 1](https://apidocs.io/illustration/android?step=createNewProject0&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-Click on ```Open``` in PyCharm to browse to your generated SDK directory and then click ```OK```.
+Here, configure the new project by adding the name, domain and location of the sample application followed by clicking ``` Next ```.
 
-![Open project in PyCharm - Step 2](https://apidocs.io/illustration/python?step=openProject0&workspaceFolder=CodeGen%20and%20Transformer%20API-Python)     
+![Create a new Android Studio Project - Step 2](https://apidocs.io/illustration/android?step=createNewProject1&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-The project files will be displayed in the side bar as follows:
+Following this, select the `Phone and Tablet` option as shown in the illustration below and click `Next`.
 
-![Open project in PyCharm - Step 3](https://apidocs.io/illustration/python?step=openProject1&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&projectName=codegenandtransformerapi)     
+![Create a new Android Studio Project - Step 3](https://apidocs.io/illustration/android?step=createNewProject2&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-### 2. Add a new Test Project
+In the following step, choose ``` Empty Activity ``` as the activity type and click ``` Next ```.
 
-Create a new directory by right clicking on the solution name as shown below:
+![Create a new Android Studio Project - Step 4](https://apidocs.io/illustration/android?step=createNewProject3&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-![Add a new project in PyCharm - Step 1](https://apidocs.io/illustration/python?step=createDirectory&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&projectName=codegenandtransformerapi)
+In this step, provide an ``` Activity Name ``` and ``` Layout Name ``` and click ``` Finish ```.  This would take you to the newly created project.
 
-Name the directory as "test"
+![Create a new Android Studio Project - Step 4](https://apidocs.io/illustration/android?step=createNewProject4&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-![Add a new project in PyCharm - Step 2](https://apidocs.io/illustration/python?step=nameDirectory)
-   
-Add a python file to this project with the name "testsdk"
+### 2. Add reference of the library project
 
-![Add a new project in PyCharm - Step 3](https://apidocs.io/illustration/python?step=createFile&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&projectName=codegenandtransformerapi)
+In order to add a dependency to this sample application, click on the android button shown in the project explorer on the left side as shown in the picture. Click on ``` Project ``` in the drop down that emerges.  
 
-Name it "testsdk"
+![Adding dependency to the client library - Step 1](https://apidocs.io/illustration/android?step=testProject0&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-![Add a new project in PyCharm - Step 4](https://apidocs.io/illustration/python?step=nameFile)
+Right click the sample application in the project explorer and click on ``` New > Module ```  as shown in the picture.
 
-In your python file you will be required to import the generated python library using the following code lines
+![Adding dependency to the client library - Step 2](https://apidocs.io/illustration/android?step=testProject1&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-```Python
-from codegenandtransformerapi.codegenandtransformerapi_client import CodegenandtransformerapiClient
-```
+Choose ``` Import Gradle Project ``` and click ``` Next ```.
 
-![Add a new project in PyCharm - Step 4](https://apidocs.io/illustration/python?step=projectFiles&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&libraryName=codegenandtransformerapi.codegenandtransformerapi_client&projectName=codegenandtransformerapi&className=CodegenandtransformerapiClient)
+![Adding dependency to the client library - Step 3](https://apidocs.io/illustration/android?step=testProject2&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-After this you can write code to instantiate an API client object, get a controller object and  make API calls. Sample code is given in the subsequent sections.
+Click on ``` Finish ``` which would take you back to the sample application with the refernced SDK. 
 
-### 3. Run the Test Project
+![Adding dependency to the client library - Step 4](https://apidocs.io/illustration/android?step=testProject3&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
-To run the file within your test project, right click on your Python file inside your Test project and click on ```Run```
+In the following step naigate to the ``` SampleApplication >  app > build.gradle ``` file and add the following line ```compile project(path: ':CodeGenAndTransformerAPI')``` to the dependencies section as shown in the illustration below.
 
-![Run Test Project - Step 1](https://apidocs.io/illustration/python?step=runProject&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&libraryName=codegenandtransformerapi.codegenandtransformerapi_client&projectName=codegenandtransformerapi&className=CodegenandtransformerapiClient)
+![Adding dependency to the client library - Step 5](https://apidocs.io/illustration/android?step=testProject4&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
 
+Finally, press ``` Sync Now ``` in the warning visible as shown in the picture below.
+
+![Adding dependency to the client library - Step 6](https://apidocs.io/illustration/android?step=testProject5&workspaceFolder=CodeGen%20and%20Transformer%20API&workspaceName=CodeGenAndTransformerAPI&projectName=CodeGenAndTransformerAPILib&rootNamespace=io.apimatic)
+
+### 3. Write sample code
+
+Once the ``` SampleApplication ``` is created, a file named ``` SampleApplication > app > src > main > java > MainActivity ``` will be visible in the *Project Explorer* with an ``` onCreate ``` method. This is the entry point for the execution of the created project.
+Here, you can add code to initialize the client library and instantiate a *Controller* class. Sample code to initialize the client library and using controller methods is given in the subsequent sections.
 
 ## How to Test
 
-You can test the generated SDK and the server with automatically generated test
-cases. unittest is used as the testing framework and nose is used as the test
-runner. You can run the tests as follows:
+The generated code and the server can be tested using automatically generated test cases. 
+JUnit is used as the testing framework and test runner.
 
-  1. From terminal/cmd navigate to the root directory of the SDK.
-  2. Invoke ```pip install -r test-requirements.txt```
-  3. Invoke ```nosetests```
+In Android Studio, for running the tests do the following:
+
+1. Right click on *SampleApplication > CodeGenAndTransformerAPILib > androidTest > java)* from the project explorer.
+2. Select "Run All Tests" or use "Ctrl + Shift + F10" to run the Tests.
 
 ## Initialization
 
@@ -145,21 +152,21 @@ In order to setup authentication and initialization of the API client, you need 
 
 | Parameter | Description |
 |-----------|-------------|
-| basic_auth_user_name | The username to use with basic authentication |
-| basic_auth_password | The password to use with basic authentication |
+| basicAuthUserName | The username to use with basic authentication |
+| basicAuthPassword | The password to use with basic authentication |
 
 
 
-API client can be initialized as following.
+API client can be initialized as following. The `appContext` being passed is the Android application [`Context`](https://developer.android.com/reference/android/content/Context.html).
 
-```python
-# Configuration parameters and credentials
-basic_auth_user_name = 'basic_auth_user_name' # The username to use with basic authentication
-basic_auth_password = 'basic_auth_password' # The password to use with basic authentication
+```java
+// Configuration parameters and credentials
+String basicAuthUserName = "basicAuthUserName"; // The username to use with basic authentication
+String basicAuthPassword = "basicAuthPassword"; // The password to use with basic authentication
 
-client = CodegenandtransformerapiClient(basic_auth_user_name, basic_auth_password)
+io.apimatic.Configuration.initialize(appContext);
+CodeGenAndTransformerAPIClient client = new CodeGenAndTransformerAPIClient(basicAuthUserName, basicAuthPassword);
 ```
-
 
 
 # Class Reference
@@ -170,27 +177,29 @@ client = CodegenandtransformerapiClient(basic_auth_user_name, basic_auth_passwor
 * [APIDescriptionValidationController](#api_description_validation_controller)
 * [APITransformerController](#api_transformer_controller)
 
-## <a name="code_generation_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CodeGenerationController") CodeGenerationController
+## <a name="code_generation_controller"></a>![Class: ](https://apidocs.io/img/class.png "io.apimatic.controllers.CodeGenerationController") CodeGenerationController
 
-### Get controller instance
+### Get singleton instance
 
-An instance of the ``` CodeGenerationController ``` class can be accessed from the API Client.
+The singleton instance of the ``` CodeGenerationController ``` class can be accessed from the API Client.
 
-```python
- code_generation_controller = client.code_generation
+```java
+CodeGenerationController codeGeneration = client.getCodeGeneration();
 ```
 
-### <a name="using_file_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_file_as_string") using_file_as_string
+### <a name="using_file_as_string_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.CodeGenerationController.usingFileAsStringAsync") usingFileAsStringAsync
 
 > The code generation endpoint. The response is a path to the generated zip file relative to https://apimatic.io/
 
-```python
-def using_file_as_string(self,
-                             name,
-                             format,
-                             template,
-                             body,
-                             dl=0)
+
+```java
+void usingFileAsStringAsync(
+        final String name,
+        final Format format,
+        final Template template,
+        final File body,
+        final Integer dl,
+        final APICallBack<String> callBack)
 ```
 
 #### Parameters
@@ -204,17 +213,23 @@ def using_file_as_string(self,
 | dl |  ``` Optional ```  ``` DefaultValue ```  | Optional |
 
 
-
 #### Example Usage
 
-```python
-name = 'name'
-format = Format.ENUM_API BLUEPRINT
-template = Template.CS_PORTABLE_NET_LIB
-body = open("pathtofile", 'rb')
-dl = 0
-
-result = code_generation_controller.using_file_as_string(name, format, template, body, dl)
+```java
+String name = "name";
+Format format = Format.fromString("Enum_API Blueprint");
+Template template = Template.fromString("cs_portable_net_lib");
+File body = new File("PathToFile");
+Integer dl = 0;
+// Invoking the API call with sample inputs
+codeGeneration.usingFileAsStringAsync(name, format, template, body, dl, new APICallBack<String>() {
+    public void onSuccess(HttpContext context, String response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -227,18 +242,19 @@ result = code_generation_controller.using_file_as_string(name, format, template,
 
 
 
-
-### <a name="using_url_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_url_as_string") using_url_as_string
+### <a name="using_url_as_string_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.CodeGenerationController.usingUrlAsStringAsync") usingUrlAsStringAsync
 
 > The code generation endpoint. The response is a path to the generated zip file relative to https://apimatic.io/
 
-```python
-def using_url_as_string(self,
-                            template,
-                            format,
-                            name,
-                            description_url,
-                            dl=0)
+
+```java
+void usingUrlAsStringAsync(
+        final Template template,
+        final Format format,
+        final String name,
+        final String descriptionUrl,
+        final Integer dl,
+        final APICallBack<String> callBack)
 ```
 
 #### Parameters
@@ -252,17 +268,23 @@ def using_url_as_string(self,
 | dl |  ``` Optional ```  ``` DefaultValue ```  | Optional |
 
 
-
 #### Example Usage
 
-```python
-template = Template.CS_PORTABLE_NET_LIB
-format = Format.ENUM_API BLUEPRINT
-name = 'name'
-description_url = 'descriptionUrl'
-dl = 0
-
-result = code_generation_controller.using_url_as_string(template, format, name, description_url, dl)
+```java
+Template template = Template.fromString("cs_portable_net_lib");
+Format format = Format.fromString("Enum_API Blueprint");
+String name = "name";
+String descriptionUrl = "descriptionUrl";
+Integer dl = 0;
+// Invoking the API call with sample inputs
+codeGeneration.usingUrlAsStringAsync(template, format, name, descriptionUrl, dl, new APICallBack<String>() {
+    public void onSuccess(HttpContext context, String response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -275,18 +297,19 @@ result = code_generation_controller.using_url_as_string(template, format, name, 
 
 
 
-
-### <a name="using_file_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_file_as_binary") using_file_as_binary
+### <a name="using_file_as_binary_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.CodeGenerationController.usingFileAsBinaryAsync") usingFileAsBinaryAsync
 
 > The code generation endpoint! Upload a file and convert it to the given format. The API description format of uploaded file will be detected automatically. The response is generated zip file as per selected template.
 
-```python
-def using_file_as_binary(self,
-                             name,
-                             format,
-                             template,
-                             body,
-                             dl=1)
+
+```java
+void usingFileAsBinaryAsync(
+        final String name,
+        final Format format,
+        final Template template,
+        final File body,
+        final Integer dl,
+        final APICallBack<InputStream> callBack)
 ```
 
 #### Parameters
@@ -300,17 +323,23 @@ def using_file_as_binary(self,
 | dl |  ``` Optional ```  ``` DefaultValue ```  | Optional |
 
 
-
 #### Example Usage
 
-```python
-name = 'name'
-format = Format.ENUM_API BLUEPRINT
-template = Template.CS_PORTABLE_NET_LIB
-body = open("pathtofile", 'rb')
-dl = 1
-
-result = code_generation_controller.using_file_as_binary(name, format, template, body, dl)
+```java
+String name = "name";
+Format format = Format.fromString("Enum_API Blueprint");
+Template template = Template.fromString("cs_portable_net_lib");
+File body = new File("PathToFile");
+Integer dl = 1;
+// Invoking the API call with sample inputs
+codeGeneration.usingFileAsBinaryAsync(name, format, template, body, dl, new APICallBack<InputStream>() {
+    public void onSuccess(HttpContext context, InputStream response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -323,18 +352,19 @@ result = code_generation_controller.using_file_as_binary(name, format, template,
 
 
 
-
-### <a name="using_url_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_url_as_binary") using_url_as_binary
+### <a name="using_url_as_binary_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.CodeGenerationController.usingUrlAsBinaryAsync") usingUrlAsBinaryAsync
 
 > Download API description from the given URL and convert it to the given format. The API description format of the provided file will be detected automatically. The response is generated zip file as per selected template.
 
-```python
-def using_url_as_binary(self,
-                            template,
-                            format,
-                            name,
-                            description_url,
-                            dl=1)
+
+```java
+void usingUrlAsBinaryAsync(
+        final Template template,
+        final Format format,
+        final String name,
+        final String descriptionUrl,
+        final Integer dl,
+        final APICallBack<InputStream> callBack)
 ```
 
 #### Parameters
@@ -348,17 +378,23 @@ def using_url_as_binary(self,
 | dl |  ``` Optional ```  ``` DefaultValue ```  | Optional |
 
 
-
 #### Example Usage
 
-```python
-template = Template.CS_PORTABLE_NET_LIB
-format = Format.ENUM_API BLUEPRINT
-name = 'name'
-description_url = 'descriptionUrl'
-dl = 1
-
-result = code_generation_controller.using_url_as_binary(template, format, name, description_url, dl)
+```java
+Template template = Template.fromString("cs_portable_net_lib");
+Format format = Format.fromString("Enum_API Blueprint");
+String name = "name";
+String descriptionUrl = "descriptionUrl";
+Integer dl = 1;
+// Invoking the API call with sample inputs
+codeGeneration.usingUrlAsBinaryAsync(template, format, name, descriptionUrl, dl, new APICallBack<InputStream>() {
+    public void onSuccess(HttpContext context, InputStream response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -371,17 +407,18 @@ result = code_generation_controller.using_url_as_binary(template, format, name, 
 
 
 
-
-### <a name="using_apikey_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_apikey_as_binary") using_apikey_as_binary
+### <a name="using_apikey_as_binary_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.CodeGenerationController.usingApikeyAsBinaryAsync") usingApikeyAsBinaryAsync
 
 > Convert an API from the user's account using the API's [API Integration Key](https://docs.apimatic.io/getting-started/manage-apis/#view-api-integration-key). The response is generated zip file as per selected template.
 > > Note: This endpoint does not require Basic Authentication.
 
-```python
-def using_apikey_as_binary(self,
-                               apikey,
-                               template,
-                               dl=1)
+
+```java
+void usingApikeyAsBinaryAsync(
+        final String apikey,
+        final Template template,
+        final Integer dl,
+        final APICallBack<InputStream> callBack)
 ```
 
 #### Parameters
@@ -393,15 +430,21 @@ def using_apikey_as_binary(self,
 | dl |  ``` Optional ```  ``` DefaultValue ```  | Optional |
 
 
-
 #### Example Usage
 
-```python
-apikey = 'apikey'
-template = Template.CS_PORTABLE_NET_LIB
-dl = 1
-
-result = code_generation_controller.using_apikey_as_binary(apikey, template, dl)
+```java
+String apikey = "apikey";
+Template template = Template.fromString("cs_portable_net_lib");
+Integer dl = 1;
+// Invoking the API call with sample inputs
+codeGeneration.usingApikeyAsBinaryAsync(apikey, template, dl, new APICallBack<InputStream>() {
+    public void onSuccess(HttpContext context, InputStream response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -414,17 +457,18 @@ result = code_generation_controller.using_apikey_as_binary(apikey, template, dl)
 
 
 
-
-### <a name="using_apikey_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_apikey_as_string") using_apikey_as_string
+### <a name="using_apikey_as_string_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.CodeGenerationController.usingApikeyAsStringAsync") usingApikeyAsStringAsync
 
 > The code generation endpoint. The response is a path to the generated zip file relative to https://apimatic.io/
 > > Note: This endpoint does not require Basic Authentication.
 
-```python
-def using_apikey_as_string(self,
-                               apikey,
-                               template,
-                               dl=0)
+
+```java
+void usingApikeyAsStringAsync(
+        final String apikey,
+        final Template template,
+        final Integer dl,
+        final APICallBack<String> callBack)
 ```
 
 #### Parameters
@@ -436,15 +480,21 @@ def using_apikey_as_string(self,
 | dl |  ``` Optional ```  ``` DefaultValue ```  | Optional |
 
 
-
 #### Example Usage
 
-```python
-apikey = 'apikey'
-template = Template.CS_PORTABLE_NET_LIB
-dl = 0
-
-result = code_generation_controller.using_apikey_as_string(apikey, template, dl)
+```java
+String apikey = "apikey";
+Template template = Template.fromString("cs_portable_net_lib");
+Integer dl = 0;
+// Invoking the API call with sample inputs
+codeGeneration.usingApikeyAsStringAsync(apikey, template, dl, new APICallBack<String>() {
+    public void onSuccess(HttpContext context, String response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -454,29 +504,30 @@ result = code_generation_controller.using_apikey_as_string(apikey, template, dl)
 |------------|-------------------|
 | 401 | Unauthorized: Access is denied due to invalid credentials. |
 | 412 | Precondition Failed |
-
 
 
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="api_description_validation_controller"></a>![Class: ](https://apidocs.io/img/class.png ".APIDescriptionValidationController") APIDescriptionValidationController
+## <a name="api_description_validation_controller"></a>![Class: ](https://apidocs.io/img/class.png "io.apimatic.controllers.APIDescriptionValidationController") APIDescriptionValidationController
 
-### Get controller instance
+### Get singleton instance
 
-An instance of the ``` APIDescriptionValidationController ``` class can be accessed from the API Client.
+The singleton instance of the ``` APIDescriptionValidationController ``` class can be accessed from the API Client.
 
-```python
- api_description_validation_controller = client.api_description_validation
+```java
+APIDescriptionValidationController aPIDescriptionValidation = client.getAPIDescriptionValidation();
 ```
 
-### <a name="using_file"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.using_file") using_file
+### <a name="using_file_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.APIDescriptionValidationController.usingFileAsync") usingFileAsync
 
 > This endpoint can be used to validate an API description document *on the fly* and see detailed error messages along with any warnings or useful information.
 
-```python
-def using_file(self,
-                   body)
+
+```java
+void usingFileAsync(
+        final File body,
+        final APICallBack<ValidateAnAPIDescriptionResponse> callBack)
 ```
 
 #### Parameters
@@ -486,24 +537,32 @@ def using_file(self,
 | body |  ``` Required ```  | The input file to use for validation |
 
 
-
 #### Example Usage
 
-```python
-body = open("pathtofile", 'rb')
-
-result = api_description_validation_controller.using_file(body)
+```java
+File body = new File("PathToFile");
+// Invoking the API call with sample inputs
+aPIDescriptionValidation.usingFileAsync(body, new APICallBack<ValidateAnAPIDescriptionResponse>() {
+    public void onSuccess(HttpContext context, ValidateAnAPIDescriptionResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
 
-### <a name="using_url"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.using_url") using_url
+### <a name="using_url_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.APIDescriptionValidationController.usingUrlAsync") usingUrlAsync
 
 > This endpoint can be used to validate an API description document *on the fly* from its public Uri, and see detailed error messages along with any warnings or useful information. This endpoint is useful for API descriptions with relative links e.g., includes (RAML) and paths (swagger).
 
-```python
-def using_url(self,
-                  description_url)
+
+```java
+void usingUrlAsync(
+        final String descriptionUrl,
+        final APICallBack<ValidateAnAPIDescriptionResponse> callBack)
 ```
 
 #### Parameters
@@ -513,24 +572,32 @@ def using_url(self,
 | descriptionUrl |  ``` Required ```  | The absolute public Uri for an API description doucment |
 
 
-
 #### Example Usage
 
-```python
-description_url = 'descriptionUrl'
-
-result = api_description_validation_controller.using_url(description_url)
+```java
+String descriptionUrl = "descriptionUrl";
+// Invoking the API call with sample inputs
+aPIDescriptionValidation.usingUrlAsync(descriptionUrl, new APICallBack<ValidateAnAPIDescriptionResponse>() {
+    public void onSuccess(HttpContext context, ValidateAnAPIDescriptionResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
 
-### <a name="using_apikey"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.using_apikey") using_apikey
+### <a name="using_apikey_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.APIDescriptionValidationController.usingApikeyAsync") usingApikeyAsync
 
 > This endpoint can be used to validate a *pre-configured* API description and see detailed error messages along with any warnings or useful information.
 
-```python
-def using_apikey(self,
-                     apikey)
+
+```java
+void usingApikeyAsync(
+        final String apikey,
+        final APICallBack<ValidateAnAPIDescriptionResponse> callBack)
 ```
 
 #### Parameters
@@ -540,38 +607,46 @@ def using_apikey(self,
 | apikey |  ``` Required ```  | The API Key of a pre-configured API description from APIMATIC |
 
 
-
 #### Example Usage
 
-```python
-apikey = 'apikey'
-
-result = api_description_validation_controller.using_apikey(apikey)
+```java
+String apikey = "apikey";
+// Invoking the API call with sample inputs
+aPIDescriptionValidation.usingApikeyAsync(apikey, new APICallBack<ValidateAnAPIDescriptionResponse>() {
+    public void onSuccess(HttpContext context, ValidateAnAPIDescriptionResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="api_transformer_controller"></a>![Class: ](https://apidocs.io/img/class.png ".APITransformerController") APITransformerController
+## <a name="api_transformer_controller"></a>![Class: ](https://apidocs.io/img/class.png "io.apimatic.controllers.APITransformerController") APITransformerController
 
-### Get controller instance
+### Get singleton instance
 
-An instance of the ``` APITransformerController ``` class can be accessed from the API Client.
+The singleton instance of the ``` APITransformerController ``` class can be accessed from the API Client.
 
-```python
- api_transformer_controller = client.api_transformer
+```java
+APITransformerController aPITransformer = client.getAPITransformer();
 ```
 
-### <a name="using_apikey"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.using_apikey") using_apikey
+### <a name="using_apikey_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.APITransformerController.usingApikeyAsync") usingApikeyAsync
 
 > Convert an API from the user's account using the API's [Api Integration Key](https://docs.apimatic.io/getting-started/manage-apis/#view-api-integration-key). The converted file is returned as the response.
 > > Note: This endpoint does not require Basic Authentication.
 
-```python
-def using_apikey(self,
-                     format,
-                     apikey)
+
+```java
+void usingApikeyAsync(
+        final FormatTransformer format,
+        final String apikey,
+        final APICallBack<InputStream> callBack)
 ```
 
 #### Parameters
@@ -582,14 +657,20 @@ def using_apikey(self,
 | apikey |  ``` Required ```  | Apikey of an already uploaded API Description on APIMATIC |
 
 
-
 #### Example Usage
 
-```python
-format = FormatTransformer.APIMATIC
-apikey = 'apikey'
-
-result = api_transformer_controller.using_apikey(format, apikey)
+```java
+FormatTransformer format = FormatTransformer.fromString("apimatic");
+String apikey = "apikey";
+// Invoking the API call with sample inputs
+aPITransformer.usingApikeyAsync(format, apikey, new APICallBack<InputStream>() {
+    public void onSuccess(HttpContext context, InputStream response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -601,15 +682,16 @@ result = api_transformer_controller.using_apikey(format, apikey)
 
 
 
-
-### <a name="using_url"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.using_url") using_url
+### <a name="using_url_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.APITransformerController.usingUrlAsync") usingUrlAsync
 
 > Download API description from the given URL and convert it to the given format. The API description format of the provided file will be detected automatically. The converted file is returned as the response.
 
-```python
-def using_url(self,
-                  format,
-                  description_url)
+
+```java
+void usingUrlAsync(
+        final FormatTransformer format,
+        final String descriptionUrl,
+        final APICallBack<InputStream> callBack)
 ```
 
 #### Parameters
@@ -620,14 +702,20 @@ def using_url(self,
 | descriptionUrl |  ``` Required ```  | The URL where the API description will be downloaded from |
 
 
-
 #### Example Usage
 
-```python
-format = FormatTransformer.APIMATIC
-description_url = 'descriptionUrl'
-
-result = api_transformer_controller.using_url(format, description_url)
+```java
+FormatTransformer format = FormatTransformer.fromString("apimatic");
+String descriptionUrl = "descriptionUrl";
+// Invoking the API call with sample inputs
+aPITransformer.usingUrlAsync(format, descriptionUrl, new APICallBack<InputStream>() {
+    public void onSuccess(HttpContext context, InputStream response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -639,15 +727,16 @@ result = api_transformer_controller.using_url(format, description_url)
 
 
 
-
-### <a name="using_file"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.using_file") using_file
+### <a name="using_file_async"></a>![Method: ](https://apidocs.io/img/method.png "io.apimatic.controllers.APITransformerController.usingFileAsync") usingFileAsync
 
 > Upload a file and convert it to the given format. The API description format of the uploaded file will be detected automatically. The converted file is returned as the response.
 
-```python
-def using_file(self,
-                   format,
-                   file)
+
+```java
+void usingFileAsync(
+        final FormatTransformer format,
+        final File file,
+        final APICallBack<InputStream> callBack)
 ```
 
 #### Parameters
@@ -658,14 +747,20 @@ def using_file(self,
 | file |  ``` Required ```  | The input file to convert |
 
 
-
 #### Example Usage
 
-```python
-format = FormatTransformer.APIMATIC
-file = open("pathtofile", 'rb')
-
-result = api_transformer_controller.using_file(format, file)
+```java
+FormatTransformer format = FormatTransformer.fromString("apimatic");
+File file = new File("PathToFile");
+// Invoking the API call with sample inputs
+aPITransformer.usingFileAsync(format, file, new APICallBack<InputStream>() {
+    public void onSuccess(HttpContext context, InputStream response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
 
 ```
 
@@ -674,7 +769,6 @@ result = api_transformer_controller.using_file(format, file)
 | Error Code | Error Description |
 |------------|-------------------|
 | 400 | Bad Request |
-
 
 
 
