@@ -61,107 +61,82 @@ Mashape		|
 
 ## How to Build
 
-The generated code has dependencies over external libraries like UniRest. These dependencies are defined in the ```composer.json``` file that comes with the SDK. 
-To resolve these dependencies, we use the Composer package manager which requires PHP greater than 5.3.2 installed in your system. 
-Visit [https://getcomposer.org/download/](https://getcomposer.org/download/) to download the installer file for Composer and run it in your system. 
-Open command prompt and type ```composer --version```. This should display the current version of the Composer installed if the installation was successful.
 
-* Using command line, navigate to the directory containing the generated files (including ```composer.json```) for the SDK. 
-* Run the command ```composer install```. This should install all the required dependencies and create the ```vendor``` directory in your project directory.
+You must have Python ```2 >=2.7.9``` or Python ```3 >=3.4``` installed on your system to install and run this SDK. This SDK package depends on other Python packages like nose, jsonpickle etc. 
+These dependencies are defined in the ```requirements.txt``` file that comes with the SDK.
+To resolve these dependencies, you can use the PIP Dependency manager. Install it by following steps at [https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/).
 
-![Building SDK - Step 1](https://apidocs.io/illustration/php?step=installDependencies&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
+Python and PIP executables should be defined in your PATH. Open command prompt and type ```pip --version```.
+This should display the version of the PIP Dependency Manager installed if your installation was successful and the paths are properly defined.
 
-### [For Windows Users Only] Configuring CURL Certificate Path in php.ini
+* Using command line, navigate to the directory containing the generated files (including ```requirements.txt```) for the SDK.
+* Run the command ```pip install -r requirements.txt```. This should install all the required dependencies.
 
-CURL used to include a list of accepted CAs, but no longer bundles ANY CA certs. So by default it will reject all SSL certificates as unverifiable. You will have to get your CA's cert and point curl at it. The steps are as follows:
+![Building SDK - Step 1](https://apidocs.io/illustration/python?step=installDependencies&workspaceFolder=CodeGen%20and%20Transformer%20API-Python)
 
-1. Download the certificate bundle (.pem file) from [https://curl.haxx.se/docs/caextract.html](https://curl.haxx.se/docs/caextract.html) on to your system.
-2. Add curl.cainfo = "PATH_TO/cacert.pem" to your php.ini file located in your php installation. “PATH_TO” must be an absolute path containing the .pem file.
-
-```ini
-[curl]
-; A default value for the CURLOPT_CAINFO option. This is required to be an
-; absolute path.
-;curl.cainfo =
-```
 
 ## How to Use
 
-The following section explains how to use the CodeGenAndTransformerAPI library in a new project.
+The following section explains how to use the Codegenandtransformerapi SDK package in a new project.
 
 ### 1. Open Project in an IDE
 
-Open an IDE for PHP like PhpStorm. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
+Open up a Python IDE like PyCharm. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
 
-![Open project in PHPStorm - Step 1](https://apidocs.io/illustration/php?step=openIDE&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
+![Open project in PyCharm - Step 1](https://apidocs.io/illustration/python?step=pyCharm)
 
-Click on ```Open``` in PhpStorm to browse to your generated SDK directory and then click ```OK```.
+Click on ```Open``` in PyCharm to browse to your generated SDK directory and then click ```OK```.
 
-![Open project in PHPStorm - Step 2](https://apidocs.io/illustration/php?step=openProject0&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)     
+![Open project in PyCharm - Step 2](https://apidocs.io/illustration/python?step=openProject0&workspaceFolder=CodeGen%20and%20Transformer%20API-Python)     
+
+The project files will be displayed in the side bar as follows:
+
+![Open project in PyCharm - Step 3](https://apidocs.io/illustration/python?step=openProject1&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&projectName=codegenandtransformerapi)     
 
 ### 2. Add a new Test Project
 
 Create a new directory by right clicking on the solution name as shown below:
 
-![Add a new project in PHPStorm - Step 1](https://apidocs.io/illustration/php?step=createDirectory&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
+![Add a new project in PyCharm - Step 1](https://apidocs.io/illustration/python?step=createDirectory&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&projectName=codegenandtransformerapi)
 
 Name the directory as "test"
 
-![Add a new project in PHPStorm - Step 2](https://apidocs.io/illustration/php?step=nameDirectory&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
+![Add a new project in PyCharm - Step 2](https://apidocs.io/illustration/python?step=nameDirectory)
    
-Add a PHP file to this project
+Add a python file to this project with the name "testsdk"
 
-![Add a new project in PHPStorm - Step 3](https://apidocs.io/illustration/php?step=createFile&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
+![Add a new project in PyCharm - Step 3](https://apidocs.io/illustration/python?step=createFile&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&projectName=codegenandtransformerapi)
 
-Name it "testSDK"
+Name it "testsdk"
 
-![Add a new project in PHPStorm - Step 4](https://apidocs.io/illustration/php?step=nameFile&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
+![Add a new project in PyCharm - Step 4](https://apidocs.io/illustration/python?step=nameFile)
 
-Depending on your project setup, you might need to include composer's autoloader in your PHP code to enable auto loading of classes.
+In your python file you will be required to import the generated python library using the following code lines
 
-```PHP
-require_once "../vendor/autoload.php";
+```Python
+from codegenandtransformerapi.codegenandtransformerapi_client import CodegenandtransformerapiClient
 ```
 
-It is important that the path inside require_once correctly points to the file ```autoload.php``` inside the vendor directory created during dependency installations.
+![Add a new project in PyCharm - Step 4](https://apidocs.io/illustration/python?step=projectFiles&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&libraryName=codegenandtransformerapi.codegenandtransformerapi_client&projectName=codegenandtransformerapi&className=CodegenandtransformerapiClient)
 
-![Add a new project in PHPStorm - Step 4](https://apidocs.io/illustration/php?step=projectFiles&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
-
-After this you can add code to initialize the client library and acquire the instance of a Controller class. Sample code to initialize the client library and using controller methods is given in the subsequent sections.
+After this you can write code to instantiate an API client object, get a controller object and  make API calls. Sample code is given in the subsequent sections.
 
 ### 3. Run the Test Project
 
-To run your project you must set the Interpreter for your project. Interpreter is the PHP engine installed on your computer.
+To run the file within your test project, right click on your Python file inside your Test project and click on ```Run```
 
-Open ```Settings``` from ```File``` menu.
+![Run Test Project - Step 1](https://apidocs.io/illustration/python?step=runProject&workspaceFolder=CodeGen%20and%20Transformer%20API-Python&libraryName=codegenandtransformerapi.codegenandtransformerapi_client&projectName=codegenandtransformerapi&className=CodegenandtransformerapiClient)
 
-![Run Test Project - Step 1](https://apidocs.io/illustration/php?step=openSettings&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
-
-Select ```PHP``` from within ```Languages & Frameworks```
-
-![Run Test Project - Step 2](https://apidocs.io/illustration/php?step=setInterpreter0&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
-
-Browse for Interpreters near the ```Interpreter``` option and choose your interpreter.
-
-![Run Test Project - Step 3](https://apidocs.io/illustration/php?step=setInterpreter1&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
-
-Once the interpreter is selected, click ```OK```
-
-![Run Test Project - Step 4](https://apidocs.io/illustration/php?step=setInterpreter2&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
-
-To run your project, right click on your PHP file inside your Test project and click on ```Run```
-
-![Run Test Project - Step 5](https://apidocs.io/illustration/php?step=runProject&workspaceFolder=CodeGen%20and%20Transformer%20API-PHP)
 
 ## How to Test
 
-Unit tests in this SDK can be run using PHPUnit. 
+You can test the generated SDK and the server with automatically generated test
+cases. unittest is used as the testing framework and nose is used as the test
+runner. You can run the tests as follows:
 
-1. First install the dependencies using composer including the `require-dev` dependencies.
-2. Run `vendor\bin\phpunit --verbose` from commandline to execute tests. If you have 
-   installed PHPUnit globally, run tests using `phpunit --verbose` instead.
-
-You can change the PHPUnit test configuration in the `phpunit.xml` file.
+  1. From terminal/cmd navigate to the root directory of the SDK.
+  2. Invoke ```pip install -r test-requirements.txt```
+  3. Invoke ```nosetests```
 
 ## Initialization
 
@@ -170,19 +145,21 @@ In order to setup authentication and initialization of the API client, you need 
 
 | Parameter | Description |
 |-----------|-------------|
-| basicAuthUserName | The username to use with basic authentication |
-| basicAuthPassword | The password to use with basic authentication |
+| basic_auth_user_name | The username to use with basic authentication |
+| basic_auth_password | The password to use with basic authentication |
 
 
 
 API client can be initialized as following.
 
-```php
-$basicAuthUserName = 'basicAuthUserName'; // The username to use with basic authentication
-$basicAuthPassword = 'basicAuthPassword'; // The password to use with basic authentication
+```python
+# Configuration parameters and credentials
+basic_auth_user_name = 'basic_auth_user_name' # The username to use with basic authentication
+basic_auth_password = 'basic_auth_password' # The password to use with basic authentication
 
-$client = new CodeGenAndTransformerAPILib\CodeGenAndTransformerAPIClient($basicAuthUserName, $basicAuthPassword);
+client = CodegenandtransformerapiClient(basic_auth_user_name, basic_auth_password)
 ```
+
 
 
 # Class Reference
@@ -195,26 +172,25 @@ $client = new CodeGenAndTransformerAPILib\CodeGenAndTransformerAPIClient($basicA
 
 ## <a name="code_generation_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CodeGenerationController") CodeGenerationController
 
-### Get singleton instance
+### Get controller instance
 
-The singleton instance of the ``` CodeGenerationController ``` class can be accessed from the API Client.
+An instance of the ``` CodeGenerationController ``` class can be accessed from the API Client.
 
-```php
-$codeGeneration = $client->getCodeGeneration();
+```python
+ code_generation_controller = client.code_generation
 ```
 
-### <a name="using_file_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.usingFileAsString") usingFileAsString
+### <a name="using_file_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_file_as_string") using_file_as_string
 
 > The code generation endpoint. The response is a path to the generated zip file relative to https://apimatic.io/
 
-
-```php
-function usingFileAsString(
-        $name,
-        $format,
-        $template,
-        $body,
-        $dl = 0)
+```python
+def using_file_as_string(self,
+                             name,
+                             format,
+                             template,
+                             body,
+                             dl=0)
 ```
 
 #### Parameters
@@ -231,14 +207,14 @@ function usingFileAsString(
 
 #### Example Usage
 
-```php
-$name = 'name';
-$format = string::ENUM_API BLUEPRINT;
-$template = string::CS_PORTABLE_NET_LIB;
-$body = "PathToFile";
-$dl = 0;
+```python
+name = 'name'
+format = Format.ENUM_API BLUEPRINT
+template = Template.CS_PORTABLE_NET_LIB
+body = open("pathtofile", 'rb')
+dl = 0
 
-$result = $codeGeneration->usingFileAsString($name, $format, $template, $body, $dl);
+result = code_generation_controller.using_file_as_string(name, format, template, body, dl)
 
 ```
 
@@ -251,18 +227,18 @@ $result = $codeGeneration->usingFileAsString($name, $format, $template, $body, $
 
 
 
-### <a name="using_url_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.usingUrlAsString") usingUrlAsString
+
+### <a name="using_url_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_url_as_string") using_url_as_string
 
 > The code generation endpoint. The response is a path to the generated zip file relative to https://apimatic.io/
 
-
-```php
-function usingUrlAsString(
-        $template,
-        $format,
-        $name,
-        $descriptionUrl,
-        $dl = 0)
+```python
+def using_url_as_string(self,
+                            template,
+                            format,
+                            name,
+                            description_url,
+                            dl=0)
 ```
 
 #### Parameters
@@ -279,14 +255,14 @@ function usingUrlAsString(
 
 #### Example Usage
 
-```php
-$template = string::CS_PORTABLE_NET_LIB;
-$format = string::ENUM_API BLUEPRINT;
-$name = 'name';
-$descriptionUrl = 'descriptionUrl';
-$dl = 0;
+```python
+template = Template.CS_PORTABLE_NET_LIB
+format = Format.ENUM_API BLUEPRINT
+name = 'name'
+description_url = 'descriptionUrl'
+dl = 0
 
-$result = $codeGeneration->usingUrlAsString($template, $format, $name, $descriptionUrl, $dl);
+result = code_generation_controller.using_url_as_string(template, format, name, description_url, dl)
 
 ```
 
@@ -299,18 +275,18 @@ $result = $codeGeneration->usingUrlAsString($template, $format, $name, $descript
 
 
 
-### <a name="using_file_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.usingFileAsBinary") usingFileAsBinary
+
+### <a name="using_file_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_file_as_binary") using_file_as_binary
 
 > The code generation endpoint! Upload a file and convert it to the given format. The API description format of uploaded file will be detected automatically. The response is generated zip file as per selected template.
 
-
-```php
-function usingFileAsBinary(
-        $name,
-        $format,
-        $template,
-        $body,
-        $dl = 1)
+```python
+def using_file_as_binary(self,
+                             name,
+                             format,
+                             template,
+                             body,
+                             dl=1)
 ```
 
 #### Parameters
@@ -327,14 +303,14 @@ function usingFileAsBinary(
 
 #### Example Usage
 
-```php
-$name = 'name';
-$format = string::ENUM_API BLUEPRINT;
-$template = string::CS_PORTABLE_NET_LIB;
-$body = "PathToFile";
-$dl = 1;
+```python
+name = 'name'
+format = Format.ENUM_API BLUEPRINT
+template = Template.CS_PORTABLE_NET_LIB
+body = open("pathtofile", 'rb')
+dl = 1
 
-$result = $codeGeneration->usingFileAsBinary($name, $format, $template, $body, $dl);
+result = code_generation_controller.using_file_as_binary(name, format, template, body, dl)
 
 ```
 
@@ -347,18 +323,18 @@ $result = $codeGeneration->usingFileAsBinary($name, $format, $template, $body, $
 
 
 
-### <a name="using_url_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.usingUrlAsBinary") usingUrlAsBinary
+
+### <a name="using_url_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_url_as_binary") using_url_as_binary
 
 > Download API description from the given URL and convert it to the given format. The API description format of the provided file will be detected automatically. The response is generated zip file as per selected template.
 
-
-```php
-function usingUrlAsBinary(
-        $template,
-        $format,
-        $name,
-        $descriptionUrl,
-        $dl = 1)
+```python
+def using_url_as_binary(self,
+                            template,
+                            format,
+                            name,
+                            description_url,
+                            dl=1)
 ```
 
 #### Parameters
@@ -375,14 +351,14 @@ function usingUrlAsBinary(
 
 #### Example Usage
 
-```php
-$template = string::CS_PORTABLE_NET_LIB;
-$format = string::ENUM_API BLUEPRINT;
-$name = 'name';
-$descriptionUrl = 'descriptionUrl';
-$dl = 1;
+```python
+template = Template.CS_PORTABLE_NET_LIB
+format = Format.ENUM_API BLUEPRINT
+name = 'name'
+description_url = 'descriptionUrl'
+dl = 1
 
-$result = $codeGeneration->usingUrlAsBinary($template, $format, $name, $descriptionUrl, $dl);
+result = code_generation_controller.using_url_as_binary(template, format, name, description_url, dl)
 
 ```
 
@@ -395,17 +371,17 @@ $result = $codeGeneration->usingUrlAsBinary($template, $format, $name, $descript
 
 
 
-### <a name="using_apikey_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.usingApikeyAsBinary") usingApikeyAsBinary
+
+### <a name="using_apikey_as_binary"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_apikey_as_binary") using_apikey_as_binary
 
 > Convert an API from the user's account using the API's [API Integration Key](https://docs.apimatic.io/getting-started/manage-apis/#view-api-integration-key). The response is generated zip file as per selected template.
 > > Note: This endpoint does not require Basic Authentication.
 
-
-```php
-function usingApikeyAsBinary(
-        $apikey,
-        $template,
-        $dl = 1)
+```python
+def using_apikey_as_binary(self,
+                               apikey,
+                               template,
+                               dl=1)
 ```
 
 #### Parameters
@@ -420,12 +396,12 @@ function usingApikeyAsBinary(
 
 #### Example Usage
 
-```php
-$apikey = 'apikey';
-$template = string::CS_PORTABLE_NET_LIB;
-$dl = 1;
+```python
+apikey = 'apikey'
+template = Template.CS_PORTABLE_NET_LIB
+dl = 1
 
-$result = $codeGeneration->usingApikeyAsBinary($apikey, $template, $dl);
+result = code_generation_controller.using_apikey_as_binary(apikey, template, dl)
 
 ```
 
@@ -438,17 +414,17 @@ $result = $codeGeneration->usingApikeyAsBinary($apikey, $template, $dl);
 
 
 
-### <a name="using_apikey_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.usingApikeyAsString") usingApikeyAsString
+
+### <a name="using_apikey_as_string"></a>![Method: ](https://apidocs.io/img/method.png ".CodeGenerationController.using_apikey_as_string") using_apikey_as_string
 
 > The code generation endpoint. The response is a path to the generated zip file relative to https://apimatic.io/
 > > Note: This endpoint does not require Basic Authentication.
 
-
-```php
-function usingApikeyAsString(
-        $apikey,
-        $template,
-        $dl = 0)
+```python
+def using_apikey_as_string(self,
+                               apikey,
+                               template,
+                               dl=0)
 ```
 
 #### Parameters
@@ -463,12 +439,12 @@ function usingApikeyAsString(
 
 #### Example Usage
 
-```php
-$apikey = 'apikey';
-$template = string::CS_PORTABLE_NET_LIB;
-$dl = 0;
+```python
+apikey = 'apikey'
+template = Template.CS_PORTABLE_NET_LIB
+dl = 0
 
-$result = $codeGeneration->usingApikeyAsString($apikey, $template, $dl);
+result = code_generation_controller.using_apikey_as_string(apikey, template, dl)
 
 ```
 
@@ -478,6 +454,7 @@ $result = $codeGeneration->usingApikeyAsString($apikey, $template, $dl);
 |------------|-------------------|
 | 401 | Unauthorized: Access is denied due to invalid credentials. |
 | 412 | Precondition Failed |
+
 
 
 
@@ -485,21 +462,21 @@ $result = $codeGeneration->usingApikeyAsString($apikey, $template, $dl);
 
 ## <a name="api_description_validation_controller"></a>![Class: ](https://apidocs.io/img/class.png ".APIDescriptionValidationController") APIDescriptionValidationController
 
-### Get singleton instance
+### Get controller instance
 
-The singleton instance of the ``` APIDescriptionValidationController ``` class can be accessed from the API Client.
+An instance of the ``` APIDescriptionValidationController ``` class can be accessed from the API Client.
 
-```php
-$aPIDescriptionValidation = $client->getAPIDescriptionValidation();
+```python
+ api_description_validation_controller = client.api_description_validation
 ```
 
-### <a name="using_file"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.usingFile") usingFile
+### <a name="using_file"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.using_file") using_file
 
 > This endpoint can be used to validate an API description document *on the fly* and see detailed error messages along with any warnings or useful information.
 
-
-```php
-function usingFile($body)
+```python
+def using_file(self,
+                   body)
 ```
 
 #### Parameters
@@ -512,21 +489,21 @@ function usingFile($body)
 
 #### Example Usage
 
-```php
-$body = "PathToFile";
+```python
+body = open("pathtofile", 'rb')
 
-$result = $aPIDescriptionValidation->usingFile($body);
+result = api_description_validation_controller.using_file(body)
 
 ```
 
 
-### <a name="using_url"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.usingUrl") usingUrl
+### <a name="using_url"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.using_url") using_url
 
 > This endpoint can be used to validate an API description document *on the fly* from its public Uri, and see detailed error messages along with any warnings or useful information. This endpoint is useful for API descriptions with relative links e.g., includes (RAML) and paths (swagger).
 
-
-```php
-function usingUrl($descriptionUrl)
+```python
+def using_url(self,
+                  description_url)
 ```
 
 #### Parameters
@@ -539,21 +516,21 @@ function usingUrl($descriptionUrl)
 
 #### Example Usage
 
-```php
-$descriptionUrl = 'descriptionUrl';
+```python
+description_url = 'descriptionUrl'
 
-$result = $aPIDescriptionValidation->usingUrl($descriptionUrl);
+result = api_description_validation_controller.using_url(description_url)
 
 ```
 
 
-### <a name="using_apikey"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.usingApikey") usingApikey
+### <a name="using_apikey"></a>![Method: ](https://apidocs.io/img/method.png ".APIDescriptionValidationController.using_apikey") using_apikey
 
 > This endpoint can be used to validate a *pre-configured* API description and see detailed error messages along with any warnings or useful information.
 
-
-```php
-function usingApikey($apikey)
+```python
+def using_apikey(self,
+                     apikey)
 ```
 
 #### Parameters
@@ -566,10 +543,10 @@ function usingApikey($apikey)
 
 #### Example Usage
 
-```php
-$apikey = 'apikey';
+```python
+apikey = 'apikey'
 
-$result = $aPIDescriptionValidation->usingApikey($apikey);
+result = api_description_validation_controller.using_apikey(apikey)
 
 ```
 
@@ -578,24 +555,23 @@ $result = $aPIDescriptionValidation->usingApikey($apikey);
 
 ## <a name="api_transformer_controller"></a>![Class: ](https://apidocs.io/img/class.png ".APITransformerController") APITransformerController
 
-### Get singleton instance
+### Get controller instance
 
-The singleton instance of the ``` APITransformerController ``` class can be accessed from the API Client.
+An instance of the ``` APITransformerController ``` class can be accessed from the API Client.
 
-```php
-$aPITransformer = $client->getAPITransformer();
+```python
+ api_transformer_controller = client.api_transformer
 ```
 
-### <a name="using_apikey"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.usingApikey") usingApikey
+### <a name="using_apikey"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.using_apikey") using_apikey
 
 > Convert an API from the user's account using the API's [Api Integration Key](https://docs.apimatic.io/getting-started/manage-apis/#view-api-integration-key). The converted file is returned as the response.
 > > Note: This endpoint does not require Basic Authentication.
 
-
-```php
-function usingApikey(
-        $format,
-        $apikey)
+```python
+def using_apikey(self,
+                     format,
+                     apikey)
 ```
 
 #### Parameters
@@ -609,11 +585,11 @@ function usingApikey(
 
 #### Example Usage
 
-```php
-$format = string::APIMATIC;
-$apikey = 'apikey';
+```python
+format = FormatTransformer.APIMATIC
+apikey = 'apikey'
 
-$result = $aPITransformer->usingApikey($format, $apikey);
+result = api_transformer_controller.using_apikey(format, apikey)
 
 ```
 
@@ -625,15 +601,15 @@ $result = $aPITransformer->usingApikey($format, $apikey);
 
 
 
-### <a name="using_url"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.usingUrl") usingUrl
+
+### <a name="using_url"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.using_url") using_url
 
 > Download API description from the given URL and convert it to the given format. The API description format of the provided file will be detected automatically. The converted file is returned as the response.
 
-
-```php
-function usingUrl(
-        $format,
-        $descriptionUrl)
+```python
+def using_url(self,
+                  format,
+                  description_url)
 ```
 
 #### Parameters
@@ -647,11 +623,11 @@ function usingUrl(
 
 #### Example Usage
 
-```php
-$format = string::APIMATIC;
-$descriptionUrl = 'descriptionUrl';
+```python
+format = FormatTransformer.APIMATIC
+description_url = 'descriptionUrl'
 
-$result = $aPITransformer->usingUrl($format, $descriptionUrl);
+result = api_transformer_controller.using_url(format, description_url)
 
 ```
 
@@ -663,15 +639,15 @@ $result = $aPITransformer->usingUrl($format, $descriptionUrl);
 
 
 
-### <a name="using_file"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.usingFile") usingFile
+
+### <a name="using_file"></a>![Method: ](https://apidocs.io/img/method.png ".APITransformerController.using_file") using_file
 
 > Upload a file and convert it to the given format. The API description format of the uploaded file will be detected automatically. The converted file is returned as the response.
 
-
-```php
-function usingFile(
-        $format,
-        $file)
+```python
+def using_file(self,
+                   format,
+                   file)
 ```
 
 #### Parameters
@@ -685,11 +661,11 @@ function usingFile(
 
 #### Example Usage
 
-```php
-$format = string::APIMATIC;
-$file = "PathToFile";
+```python
+format = FormatTransformer.APIMATIC
+file = open("pathtofile", 'rb')
 
-$result = $aPITransformer->usingFile($format, $file);
+result = api_transformer_controller.using_file(format, file)
 
 ```
 
@@ -698,6 +674,7 @@ $result = $aPITransformer->usingFile($format, $file);
 | Error Code | Error Description |
 |------------|-------------------|
 | 400 | Bad Request |
+
 
 
 
